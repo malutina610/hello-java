@@ -6,12 +6,14 @@ public class Main {
         StepTracker stepTracker = new StepTracker(scanner);
         //addNewNumberStepsPerDay(); // - вродебы он должен быть вызван здесь
         // printStatistic();
-        printMenu();
+       // printMenu();
+        //String command="";
+      //  while (command==4) { пока не поняла как без true
         while (true) {
-
+            printMenu();
 
             //int i = scanner.nextInt(); // это убрали тк юзер не введет число, в if-ах i  заменили также на command.equals
-            String command = scanner.nextLine();//int заменили на String тк юзер введет строку, а не число
+            String command = scanner.next();//Int()//.nextLine();//int заменили на String тк юзер введет строку, а не число
             // программа выдаст ошибку, nextline разрешает ипользовать пробелы в строке юзера
             //считает command.equals("") из-за ентера в конце шагов
 
