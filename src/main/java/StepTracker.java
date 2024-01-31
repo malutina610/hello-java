@@ -1,5 +1,4 @@
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class StepTracker {
@@ -45,10 +44,14 @@ public class StepTracker {
             System.out.println("Введено некорректное значение шагов, необходимо ввести от 0 до 100000");
             return; // нужно вернуться не в начало ?
         }
-         if (monthToData[month - 1].days[day - 1] !=0){
-             System.out.println(month+" месяц" +"-"+day+" день, здесь уже есть данные - "+monthToData[month - 1].days[day - 1]+" шагов");
-             return;
-         }
+        if (monthToData[month - 1].days[day - 1] !=0){
+            System.out.println(month+" месяц" +"-"+day+" день, здесь уже есть данные - "+monthToData[month - 1].days[day - 1]+" шагов");
+            System.out.println("Желаете изменить данные? 1 - Да; 2- Нет ");
+            String command = scanner.next();
+            if (command.equals("2")) {
+                return;
+            }
+        }
         // Получение соответствующего объекта MonthData из массива
         // Сохранение данных
         // MonthData monthData = monthToData[month - 1];//скопировала объект // получили нужный месяц
@@ -89,7 +92,7 @@ public class StepTracker {
         System.out.println("ВЫВОД ОБЩЕЙ СТАТИСТИКИ: " );
         System.out.println("вывод суммы шагов за " +naimMonth +" месяц:" + monthData.sumStepsFromMonth());
         System.out.println("вывод максимального пройденного количества шагов за " +naimMonth +" месяц: "+ monthData.maxSteps());
-        System.out.println("вывод среднего пройденного количества шагов за " +naimMonth +" месяц: "+monthData.averageValue());
+        System.out.println("вывод среднего пройденного количества шагов за " +naimMonth +" месяц: "+monthData.averageValue(monthData.sumStepsFromMonth()));
         System.out.println("вывод пройденной за месяц дистанции в км " + converter.stepToKm(monthData.sumStepsFromMonth()));
         System.out.println("вывод количества сожжённых килокалорий за " +naimMonth +" месяц: "+ converter.convertStepsToKilocalories(monthData.sumStepsFromMonth()));
         System.out.println("вывод лучшей серии  за" +naimMonth +" месяц: "+monthData.bestSeries(goalByStepsPerDay));//+monthData.bestSession()
@@ -102,11 +105,11 @@ public class StepTracker {
         System.out.println("Январь - 1, ...... , Декабрь - 12 ");
     }
     public void changeStepGoal() {
-          System.out.println("Задайте цель: ");
-          goalByStepsPerDay = scanner.nextInt();
+        System.out.println("Задайте цель шагов: ");
+        goalByStepsPerDay = scanner.nextInt();
         if (goalByStepsPerDay <0 ||goalByStepsPerDay == 0) {
             System.out.println("Введено некорректное значение, цель должна быть больше 0");
-            return;
+           // return;
         }
 
     }

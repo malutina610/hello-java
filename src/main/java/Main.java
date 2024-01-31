@@ -6,9 +6,9 @@ public class Main {
         StepTracker stepTracker = new StepTracker(scanner);
         //addNewNumberStepsPerDay(); // - вродебы он должен быть вызван здесь
         // printStatistic();
-       // printMenu();
+        // printMenu();
         //String command="";
-      //  while (command==4) { пока не поняла как без true
+        //  while (command==4) { пока не поняла как без true
         while (true) {
             printMenu();
 
@@ -17,7 +17,7 @@ public class Main {
             // программа выдаст ошибку, nextline разрешает ипользовать пробелы в строке юзера
             //считает command.equals("") из-за ентера в конце шагов
 
-             if (command.equals("1")) {
+            if (command.equals("1")) {
                 //задать кол-во шагов за день
                 stepTracker.addNewNumberStepsPerDay();
             } else if (command.equals("2")) {
@@ -40,7 +40,7 @@ public class Main {
 
     static void printMenu() {
         System.out.println("Введите команду: Где 1 - задать кол-во шагов за день; ");// Вывод доступных команд
-        System.out.println("                     2 - установить цель на день; ");// Вывод доступных команд
+        System.out.println("                     2 - установить цель на день (по условию цель составляет 10.000 шагов в день); ");// Вывод доступных команд
         System.out.println("                     3 - вывести статисику; ");// Вывод доступных команд
         System.out.println("                     4 - выйти из программы ");// Вывод доступных команд
 
