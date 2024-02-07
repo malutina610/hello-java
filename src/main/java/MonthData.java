@@ -33,7 +33,7 @@ public class MonthData {
         for (final int completedSteps : days) {
             if (completedSteps >= goalByStepsPerDay) {
                 countBest++;
-                if (countBest > 2) {
+                if (countBest == 2) {
                     bestSession++;
                 }
             } else {
